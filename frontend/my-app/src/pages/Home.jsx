@@ -15,7 +15,7 @@ function Home() {
       setLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:3000/book/api/getBooks/"
+          `${import.meta.env.VITE_RENDER_URL}/book/api/getBooks/`
         );
         if (response) {
           setBooks(response.data.data);
@@ -53,15 +53,14 @@ function Home() {
           <MdOutlineAddBox className="text-sky-800 text-4xl" />
         </Link>
       </div>
-     
-        {loading ? (
-          <Spinner />
-        ) : showType === "table" ? (
-          <BookTable books={books} />
-        ) : (
-          <BookCard books={books} />
-        )}
-      
+
+      {loading ? (
+        <Spinner />
+      ) : showType === "table" ? (
+        <BookTable books={books} />
+      ) : (
+        <BookCard books={books} />
+      )}
     </div>
   );
 }

@@ -16,7 +16,7 @@ function DeleteBooks() {
     const fetchBook = async () => {
       try {
         const res = await axios(
-          `http://localhost:3000/book/api/getBooks/${id}`
+          `${import.meta.env.VITE_RENDER_URL}/book/api/getBooks/${id}`
         );
         if (res) {
           console.log(res.data.data);
@@ -34,7 +34,7 @@ function DeleteBooks() {
   const deleteThisBook = async () => {
     setLoading(true);
     try {
-      await axios.delete(`http://localhost:3000/book/api/deleteBook/${id}`);
+      await axios.delete(`${import.meta.env.VITE_RENDER_URL}/book/api/deleteBook/${id}`);
       setLoading(false);
        enqueueSnackbar('Book Deleted successfully',{variant:'success'})
       navigate("/");

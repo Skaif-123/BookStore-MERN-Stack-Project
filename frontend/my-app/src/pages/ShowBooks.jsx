@@ -8,7 +8,7 @@ function ShowBooks() {
   useEffect(() => {
     const fetchBooks = async () => {
       const response = await axios.get(
-        `http://localhost:3000/book/api/getBooks/${id}`
+        `${import.meta.env.VITE_RENDER_URL}/book/api/getBooks/${id}`
       );
       try {
         if (response) {

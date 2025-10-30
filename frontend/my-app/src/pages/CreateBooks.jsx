@@ -15,7 +15,7 @@ function CreateBooks() {
 
   const postData = async (data) => {
     try {
-      await axios.post("http://localhost:3000/book/api/upload/", data);
+      await axios.post(`${import.meta.env.VITE_RENDER_URL}/book/api/upload/`, data);
       setLoading(false);
       enqueueSnackbar('Book created successfully',{variant:'success'})
       navigate("/");

@@ -10,7 +10,7 @@ function InfoBook() {
   useEffect(() => {
     const fetchBooks = async () => {
       const response = await axios.get(
-        `http://localhost:3000/book/api/getBooks/${id}`
+        `process.env.RENDER_URL/book/api/getBooks/${id}`
       );
       try {
         if (response) {

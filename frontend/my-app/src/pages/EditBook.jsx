@@ -19,7 +19,7 @@ const{enqueueSnackbar}=useSnackbar();
     const fetchBook = async () => {
       try {
         const res = await axios(
-          `http://localhost:3000/book/api/getBooks/${id}`
+          `${import.meta.env.VITE_RENDER_URL}/book/api/getBooks/${id}`
         );
         if (res) {
           console.log(res.data.data);
@@ -42,7 +42,7 @@ const{enqueueSnackbar}=useSnackbar();
     setLoading(true);
     const data = { title, author, publishYear };
     try {
-      await axios.put(`http://localhost:3000/book/api/updateBook/${id}`, data);
+      await axios.put(`${import.meta.env.VITE_RENDER_URL}/book/api/updateBook/${id}`, data);
       setLoading(false);
        enqueueSnackbar('Book Edited successfully',{variant:'success'})
       navigate("/");
