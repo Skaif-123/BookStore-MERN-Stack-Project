@@ -11,7 +11,7 @@ connectToDB();
 app.use(express.json());
 // app.use(cors())  for general allow everyone who you find
 app.use(cors({
-  origin:"http://localhost:5173",
+  origin:"https://book-store-mern-stack-project-mu.vercel.app/",
   methods:['GET','POST','PUT','DELETE'],
   allowedHeaders:['Content-Type'],
 }))
