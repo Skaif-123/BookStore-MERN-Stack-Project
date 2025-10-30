@@ -1,20 +1,16 @@
   dotenv.config({ path: "E:/MERN PROJECTS/Book Store/backend/.env" });
   import cors from "cors";
-  import dotenv from "dotenv";
-  import express from "express";
-  import { connectToDB } from "./database/db.js";
-  import book_routes from "./routes/book_routes.js";
+import dotenv from "dotenv";
+import express from "express";
+import { connectToDB } from "./database/db.js";
+import book_routes from "./routes/book_routes.js";
 
   const app = express();
   connectToDB();
 
   app.use(express.json());
   // app.use(cors())  for general allow everyone who you find
-  app.use(cors({
-    // origin:"https://book-store-mern-stack-project-mu.vercel.app",
-    methods:['GET','POST','PUT','DELETE'],
-    allowedHeaders:['Content-Type'],
-  }))
+  app.use(cors())
     
   app.use("/book/api", book_routes);
 
