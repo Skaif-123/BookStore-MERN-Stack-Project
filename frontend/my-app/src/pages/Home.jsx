@@ -12,8 +12,8 @@ function Home() {
   const [showType, setShowType] = useState("table");
   useEffect(() => {
     const fetchBooks = async () => {
-      setLoading(true);
       try {
+        setLoading(true);
         const response = await axios.get(
           `${import.meta.env.VITE_RENDER_URL}/book/api/getBooks/`
         );
